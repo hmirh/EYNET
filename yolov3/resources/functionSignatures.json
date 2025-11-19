@@ -1,0 +1,71 @@
+{
+"yolov3ObjectDetector":
+{
+    "inputs":
+    [
+        {"name":"detectorName", "kind":"required", "type":"choices={'tiny-yolov3-coco','darknet53-coco'}"}
+    ]
+},
+
+"yolov3ObjectDetector":
+{
+    "inputs":
+    [
+        {
+            "mutuallyExclusiveGroup":
+            [
+                {"name":"detectorName","kind":"required","type":"choices={'darknet53-coco','tiny-yolov3-coco'}"},
+                {"name":"network","kind":"required","type":[["dlnetwork"],["DAGNetwork"],["nnet.cnn.LayerGraph"]]}
+            ]
+        },
+        {"name":"classNames","kind":"required","type":[["categorical"],["string"],["cell"]]},
+        {"name":"anchorBoxes","kind":"required","type":"cell"},
+        {"name":"ModelName","kind":"namevalue","type":[["char","vector"],["string"]]},
+        {"name":"InputSize","kind":"namevalue","type":["2d","numeric","size=1,2"]},
+        {"name":"DetectionNetworkSource","kind":"namevalue","type":"cell"}
+    ]
+},
+
+"yolov3ObjectDetector.preprocess":
+{
+    "inputs":
+    [
+        {"name":"detector", "kind":"required", "type":"yolov3ObjectDetector"}, 
+        {"name":"I", "kind":"required", "type":[["dlarray"],["matlab.io.Datastore"],["matlab.io.datastore.Datastore"]]}
+    ]
+},
+
+"yolov3ObjectDetector.forward":
+{
+    "inputs":
+    [
+        {"name":"detector", "kind":"required", "type":"yolov3ObjectDetector"}, 
+        {"name":"I", "kind":"required", "type":[["dlarray"],["matlab.io.Datastore"],["matlab.io.datastore.Datastore"]]}
+    ]
+},
+
+"yolov3ObjectDetector.predict":
+{
+    "inputs":
+    [
+        {"name":"detector", "kind":"required", "type":"yolov3ObjectDetector"}, 
+        {"name":"I", "kind":"required", "type":[["uint8"],["uint16"],["int16"],["double"],["single"],["matlab.io.Datastore"],["matlab.io.datastore.Datastore"]]}
+    ]
+},
+
+"yolov3ObjectDetector.detect":
+{
+    "inputs":
+    [
+        {"name":"detector", "kind":"required", "type":"yolov3ObjectDetector"}, 
+        {"name":"I", "kind":"required", "type":[["uint8"],["uint16"],["int16"],["double"],["single"],["matlab.io.Datastore"],["matlab.io.datastore.Datastore"]]},
+        {"name":"roi", "kind":"ordered", "type":["vector","size=1,4","numeric"]},
+        {"name":"Threshold", "kind":"namevalue", "type":[[">=0","<=1","scalar","numeric"]]}, 
+        {"name":"SelectStrongest", "kind":"namevalue", "type":["logical","scalar"]},
+        {"name":"MiniBatchSize", "kind":"namevalue", "type":[["positive","integer","scalar","numeric"]]},
+        {"name":"MinSize", "kind":"namevalue", "type":["vector","size=1,2","numeric"]},
+        {"name":"MaxSize", "kind":"namevalue", "type":["vector","size=1,2","numeric"]},
+        {"name":"DetectionPreprocessing","kind":"namevalue","type":"choices={'auto','none'}"}
+    ]
+}
+}

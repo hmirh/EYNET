@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--Copyright 2021 The MathWorks, Inc. -->
+
+<RTTPackageRepository>
+    <SupportPackage
+        name="yolov3"
+        displayname="Computer Vision Toolbox Model for YOLO v3 Object Detection"
+        fullname="Computer Vision Toolbox Model for YOLO v3 Object Detection"
+        version="21.1.0"
+        basecode="YOLOV3"
+        infotext="Computer Vision Toolbox Model for YOLO v3 Object Detection"
+        platform="PCWIN,PCWIN64,GLNXA64,MACI64"
+        visible="1"
+        enable="1"
+        baseproduct="Computer Vision Toolbox"
+        url="http://www.mathworks.com"
+        downloadurl=""
+        licenseurl=""
+        supportcategory="software"
+        folder="yolov3">
+        <Path name="$(INSTALLDIR)/yolov3"></Path>
+    </SupportPackage>
+</RTTPackageRepository>
