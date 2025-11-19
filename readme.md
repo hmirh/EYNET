@@ -20,7 +20,8 @@ https://drive.google.com/file/d/1yVazMkoq8ZSnT5yRFJeIe9ohP9d9JCTr/view?usp=shari
 
 A Matlab implementation of this work is available here. You can download it for free and use it anywhere, but refer to its paper.
 
-For run the EyNEt, you should run the '''main.m'''  file.
+For run the EYNet, you should run the '''main.m'''  file.
+
 
 
 
